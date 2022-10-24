@@ -8,20 +8,20 @@ let tree = Node(
   Node(
     "+",
     null,
-    Node("", 7, null, null),
+    Node("", 7),
     Node(
       "x",
       null,
       Node(
         "-",
         null,
-        Node("", 3, null, null),
-        Node("", 2, null, null)
+        Node("", 3),
+        Node("", 2 )
       ),
-      Node("", 5, null, null)
+      Node("", 5)
     )
   ),
-  Node("", 6, null, null)
+  Node("", 6)
 );
 
 strictEqual("((7 + ((3 - 2) x 5)) ÷ 6)", tree.toString());
