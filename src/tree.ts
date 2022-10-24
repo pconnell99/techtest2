@@ -1,114 +1,68 @@
-abstract class Node {
-  protected static value: any;
-  protected static left: any;
-  protected static right: any;
+export interface INode {
+  result(): any;
+  toString(): string;
+}
+
+abstract class Node implements INode {
+  protected leftVal: number;
+  protected rightVal: number;
+  protected leftString: string;
+  protected rightString: string;
   constructor(left: Node | number, right: Node | number) {
-    Node.left = typeof left === "number" ? left : left.result();
-    Node.right = typeof right === "number" ? right : right.result();
-    console.log("Root:", left, right);
+    this.leftVal = typeof left === 'number' ? left : left.result();
+    this.rightVal = typeof right === 'number' ? right : right.result();
+    this.leftString =
+      typeof left === 'object' ? left?.toString() : left.toString();
+    this.rightString =
+      typeof right === 'object' ? right?.toString() : right.toString();
   }
-  public static result() {}
-  public static toString() {}
+  public result(): any {}
+  public toString(): string {
+    return 'Unimplemented!';
+  }
 }
 
 export class NodeAdd extends Node {
-  constructor(left: Node | number, right: Node | number) {
-    super(left, right);
-  }
-
   public result(): any {
-    return Node.left + Node.right;
+    return this.leftVal + this.rightVal;
   }
-
   public toString() {
-    return `(${Node.left.toString()} + ${Node.right.toString()})`;
+    return `(${this.leftString.toString()} + ${this.rightString.toString()})`;
   }
 }
 
 export class NodeSubtract extends Node {
-  constructor(left: any, right: any) {
-    super(left, right);
-  }
-
   public result() {
-    console.log("Subtract", Node.left.result(), Node.right.result());
-    return Node.left.result() - Node.right.result();
+    return this.leftVal - this.rightVal;
   }
-
   public toString() {
-    return `(${Node.left.toString()} - ${Node.right.toString()})`;
+    return `(${this.leftString.toString()} - ${this.rightString.toString()})`;
   }
 }
 
 export class NodeMultiply extends Node {
-  constructor(left: any, right: any) {
-    super(left, right);
-  }
-
   public result() {
-    console.log("Mult", Node.left.result(), Node.right.result());
-    return Node.left.result() * Node.right.result();
+    return this.leftVal * this.rightVal;
   }
-
   public toString() {
-    return `(${Node.left.toString()} * ${Node.right.toString()})`;
+    return `(${this.leftString.toString()} x ${this.rightString.toString()})`;
   }
 }
 
 export class NodeDivide extends Node {
-  constructor(left: any, right: any) {
-    super(left, right);
-  }
-
   public result() {
-    console.log("Div", Node.left.result(), Node.right.result());
-    return Node.left.result() / Node.right.result();
+    return this.leftVal / this.rightVal;
   }
-
-  toString() {
-    return `(${Node.left.toString()} / ${Node.right.toString()})`;
+  public toString() {
+    return `(${this.leftString.toString()} ÷ ${this.rightString.toString()})`;
   }
 }
 
-/*export const Node = (
-  value: any,
-  operator: any = "",
-  left: any = null,
-  right: any = null
-) => {
-  const result = function () {
-    switch (operator) {
-      case "+":
-        return left.result() + right.result();
-      case "-":
-        return left.result() - right.result();
-      case "x":
-        return left.result() * right.result();
-      case "÷":
-        return left.result() / right.result();
-      default:
-        return value;
-    }
-  };
-
-  const toString = function () {
-    switch (operator) {
-      case "+":
-
-      case "-":
-        return `(${left.toString()} - ${right.toString()})`;
-      case "x":
-        return `(${left.toString()} x ${right.toString()})`;
-      case "÷":
-        return `(${left.toString()} ÷ ${right.toString()})`;
-      default:
-        return value.toString();
-    }
-  };
-
-  return {
-    result,
-    toString,
-  };
-};
-*/
+export class NodeModulus extends Node {
+  public result() {
+    return this.leftVal % this.rightVal;
+  }
+  public toString() {
+    return `(${this.leftString.toString()} % ${this.rightString.toString()})`;
+  }
+}
