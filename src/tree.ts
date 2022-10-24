@@ -1,4 +1,9 @@
-export const Node = (operator: any, value: any, left?: any, right?: any) => {
+export const Node = (
+  value: any,
+  operator: any = "",
+  left: any = null,
+  right: any = null
+) => {
   const result = function () {
     switch (operator) {
       case "+":
