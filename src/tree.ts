@@ -1,5 +1,3 @@
-import { strictEqual } from 'assert';
-
 export const Node = (operator: any, value: any, left: any, right: any) => {
   const result = function () {
     switch (operator) {
@@ -36,23 +34,3 @@ export const Node = (operator: any, value: any, left: any, right: any) => {
     toString
   };
 };
-
-const tree = Node(
-  "÷",
-  null,
-  Node(
-    "+",
-    null,
-    Node("", 7, null, null),
-    Node(
-      "x",
-      null,
-      Node("-", null, Node("", 3, null, null), Node("", 2, null, null)),
-      Node("", 5, null, null)
-    )
-  ),
-  Node("", 6, null, null)
-);
-
-strictEqual("((7 + ((3 - 2) x 5)) ÷ 6)", tree.toString());
-strictEqual(2, tree.result());
