@@ -1,0 +1,25 @@
+{
+  "name": "rgtech2",
+  "version": "1.0.0",
+  "description": "Build an arithmetic operation, with string support",
+  "main": "tree.js",
+  "scripts": {
+    "test": "npx tsc && node .\\dist\\tree.test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pconnell99/techtest2.git"
+  },
+  "author": "Paul Connell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pconnell99/techtest2/issues"
+  },
+  "homepage": "https://github.com/pconnell99/techtest2#readme",
+  "dependencies": {
+    "typescript": "^4.8.4"
+  },
+  "devDependencies": {
+    "@types/assert": "^1.5.6"
+  }
+}
