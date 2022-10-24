@@ -32,10 +32,6 @@ export const Node = (operator: any, value: any, left: any, right: any) => {
   };
 
   return {
-    operator,
-    value,
-    left,
-    right,
     result,
     toString
   };
