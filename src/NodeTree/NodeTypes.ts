@@ -9,16 +9,16 @@ abstract class Node implements INode {
   protected leftString: string;
   protected rightString: string;
   constructor(left: Node | number, right: Node | number) {
-    this.leftVal = typeof left === 'number' ? left : left.result();
-    this.rightVal = typeof right === 'number' ? right : right.result();
+    this.leftVal = typeof left === "number" ? left : left.result();
+    this.rightVal = typeof right === "number" ? right : right.result();
     this.leftString =
-      typeof left === 'object' ? left?.toString() : left.toString();
+      typeof left === "object" ? left?.toString() : left.toString();
     this.rightString =
-      typeof right === 'object' ? right?.toString() : right.toString();
+      typeof right === "object" ? right?.toString() : right.toString();
   }
   public result(): any {}
   public toString(): string {
-    return 'Unimplemented!';
+    return "Unimplemented!";
   }
 }
 
